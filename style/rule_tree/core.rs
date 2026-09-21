@@ -109,7 +109,9 @@ impl RuleTree {
     fn maybe_dump_stats(&self) {
         use itertools::Itertools;
         use std::cell::Cell;
-        use std::time::{Duration, Instant};
+        use std::time::Duration;
+
+        use crate::worker_time::Instant;
 
         if !log_enabled!(log::Level::Trace) {
             return;

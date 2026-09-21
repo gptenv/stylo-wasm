@@ -14,7 +14,7 @@ use crate::parallel;
 use crate::scoped_tls::ScopedTLS;
 use crate::traversal::{DomTraversal, PreTraverseToken};
 use std::collections::VecDeque;
-use std::time::Instant;
+use crate::worker_time::Instant;
 
 #[cfg(feature = "servo")]
 fn should_report_statistics() -> bool {

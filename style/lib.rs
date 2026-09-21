@@ -72,6 +72,7 @@ pub mod color;
 #[path = "properties/computed_value_flags.rs"]
 pub mod computed_value_flags;
 pub mod context;
+mod worker_time;
 pub mod counter_style;
 pub mod custom_properties;
 pub mod custom_properties_map;

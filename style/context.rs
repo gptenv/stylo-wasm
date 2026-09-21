@@ -37,7 +37,9 @@ use selectors::OpaqueElement;
 use servo_arc::Arc;
 use std::fmt;
 use std::ops;
-use std::time::{Duration, Instant};
+use std::time::Duration;
+
+use crate::worker_time::Instant;
 use style_traits::dom::OpaqueNode;
 use style_traits::CSSPixel;
 use style_traits::DevicePixel;
@@ -378,7 +380,7 @@ impl TraversalStatistics {
     /// Generate complete traversal statistics.
     ///
     /// The traversal time is computed given the start time in seconds.
-    pub fn new<E, D>(
+    pub(crate) fn new<E, D>(
         aggregated: PerThreadTraversalStatistics,
         traversal: &D,
         parallel: bool,
