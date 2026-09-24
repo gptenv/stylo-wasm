@@ -92,12 +92,14 @@ impl CssUrl {
     /// Returns true if this URL looks like a fragment.
     /// See https://drafts.csswg.org/css-values/#local-urls
     ///
-    /// Since Servo currently stores resolved URLs, this is hard to implement. We
-    /// either need to change servo to lazily resolve (like Gecko), or note this
-    /// information in the tokenizer.
+    /// This is a same-document reference (e.g. `url(#foo)`) if the
+    /// as-written url token starts with `#`, before Servo's eager
+    /// resolution turns it into an absolute url. `original` holds exactly
+    /// that as-written text.
     pub fn is_fragment(&self) -> bool {
-        error!("Can't determine whether the url is a fragment.");
-        false
+        self.original
+            .as_deref()
+            .is_some_and(|original| original.starts_with('#'))
     }
 
     /// Returns the resolved url if it was valid.
