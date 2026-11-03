@@ -3875,6 +3875,7 @@ keyword = { values = ["mixed", "upright", "sideways"], gecko_aliases = ["sideway
 struct = "inherited_box"
 spec = "https://drafts.csswg.org/css-images/#propdef-image-orientation"
 animation_type = "discrete"
+servo_restyle_damage = "rebuild_box"
 affects = "layout"
 keyword = { values = ["from-image", "none"] }
 
